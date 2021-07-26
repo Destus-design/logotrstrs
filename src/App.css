@@ -1,0 +1,482 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+@import "https://fonts.googleapis.com/css?family=Raleway";
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Oswald");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans", sans-serif;
+}
+
+.app {
+  background: rgb(255, 255, 255);
+
+  background-size: cover;
+  min-height: 100vh;
+}
+
+ul {
+  list-style: none;
+}
+
+.sectiona {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-secA {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.icon-secA h6 {
+  color: rgb(228, 1, 88);
+  font-size: 29px;
+  font-weight: bold;
+  font-family: Raleway;
+}
+.icon-sec {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-secb {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 25px;
+}
+
+.sectiona i {
+  font-size: 27px;
+  color: rgb(228, 1, 1);
+  padding: 5px;
+}
+
+.first {
+  display: grid;
+  background-color: rgb(248, 247, 248);
+  border-radius: 20px;
+  padding-top: 5px;
+  box-shadow: 0px 0px 5px rgba(39, 39, 39, 0.63);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.first-ul {
+  display: grid;
+  grid-row: 1;
+  grid-column: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.first-ul li:nth-child(1) {
+  padding: 5px;
+  color: rgb(5, 5, 5);
+  padding-bottom: 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-ul li:nth-child(2),
+.second-ul li:nth-child(2) {
+  color: rgb(2, 2, 2);
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+}
+.first-ul li:nth-child(3),
+.second-ul li:nth-child(3) {
+  color: rgb(3, 3, 3);
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+}
+
+.second-ul {
+  display: grid;
+  grid-row: 1;
+  grid-column: 2;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.second-ul li:nth-child(1) {
+  width: 38px;
+  height: 38px;
+  border-radius: 50px;
+  color: rgb(1, 175, 228);
+  font-weight: bold;
+  padding: 5px;
+  font-size: 13px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section3 {
+  padding: 20px 0px 0px 0px;
+}
+.d-flexx {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(206, 206, 206);
+  height: 40px;
+  text-align: center;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: 3px;
+  width: 100px;
+  border: none;
+}
+.section3 h6 {
+  color: rgb(1, 156, 228);
+  background-color: rgb(235, 233, 233);
+  padding-top: 20px;
+  padding-bottom: 5px;
+  padding-left: 2px;
+}
+.section3 p {
+  font-size: 12px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.section3 i {
+  font-size: 20px;
+  color: aliceblue;
+  padding-left: 2px;
+  text-align: center;
+}
+
+.section3 input {
+  background-color: rgb(238, 238, 238);
+  height: 40px;
+  border: 0.5px solid rgb(182, 181, 181);
+  padding: 10px 10px;
+  border-radius: 0px 5px 5px 0px;
+  width: 100%;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 10px 10px 2px;
+}
+.btn-box button {
+  width: 100px;
+  border-radius: 8px;
+}
+
+.sectio ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 5px;
+}
+.ugray {
+  background-color: rgb(226, 226, 226);
+  margin-top: 0;
+  border: 0.5px solid rgb(29, 29, 29);
+  box-shadow: 0px 4px 10px rgba(128, 128, 128, 0.616);
+  margin: 1px;
+}
+
+.section4 h5 {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(209, 208, 208);
+  color: aliceblue;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  margin-bottom: 0;
+}
+
+.ugray li b {
+  font-weight: bolder;
+}
+
+.activicul {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "box1 box2 box3" "box4 box5 box6" "box7 box8 box9" "box10 box11 box12";
+}
+.activicul li {
+  list-style: none;
+  padding: 20px 10px;
+  font-weight: bold;
+}
+
+.box1 {
+  font: 1em sans-serif;
+  grid-area: box1;
+}
+.box2 {
+  font: 1em sans-serif;
+  grid-area: box2;
+}
+.box3 {
+  font: 1em sans-serif;
+  grid-area: box3;
+}
+.box4 {
+  font: 1em sans-serif;
+  grid-area: box4;
+}
+.box5 {
+  font: 1em sans-serif;
+  grid-area: box5;
+}
+.box6 {
+  font: 1em sans-serif;
+  grid-area: box6;
+}
+.box7 {
+  font: 1em sans-serif;
+  grid-area: box7;
+}
+.box8 {
+  font: 1em sans-serif;
+  grid-area: box8;
+}
+.box9 {
+  font: 1em sans-serif;
+  grid-area: box9;
+}
+.box10 {
+  font: 1em sans-serif;
+  grid-area: box10;
+}
+.box11 {
+  font: 1em sans-serif;
+  grid-area: box11;
+}
+.box12 {
+  font: 1em sans-serif;
+  grid-area: box12;
+}
+.footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-around;
+}
+.footer ul .links {
+  display: grid;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.iconBx {
+  color: rgb(223, 95, 144);
+}
+.iconBa {
+  color: rgb(228, 1, 88);
+}
+
+.iconB {
+  font-size: 30px;
+}
+.footer .links b {
+  font-size: 15px;
+  letter-spacing: 0.1px;
+}
+
+.introc {
+  color: rgb(148, 147, 147);
+  background: rgba(0, 0, 0, 0.466);
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  position: fixed;
+}
+
+.wordCarousel {
+  font-size: 30px;
+  font-weight: 100;
+  color: #dbdada;
+  font-family: "Roboto Condensed", cursive;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  top: 50px;
+  flex-wrap: wrap;
+}
+.wordCarousel div {
+  overflow: hidden;
+  position: relativ;
+  float: right;
+  height: 65px;
+  padding-top: 10px;
+  margin-top: -10px;
+}
+.wordCarousel span {
+  overflow: hidden;
+  position: relativ;
+  float: right;
+  height: 65px;
+  padding-top: 10px;
+  margin-top: -10px;
+}
+
+.wordCarousel li {
+  font-family: Serif;
+  color: #ccc;
+  font-weight: 700;
+  padding: 0 10px;
+  height: 45px;
+  margin-bottom: 45px;
+  display: block;
+}
+.flip3 {
+  animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+}
+
+@keyframes flip3 {
+  0% {
+    margin-top: -180px;
+  }
+  5% {
+    margin-top: -90px;
+  }
+  50% {
+    margin-top: -90px;
+  }
+  55% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
+
+.flip2 {
+  animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+}
+.flip3 {
+  animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+}
+.flip4 {
+  animation: flip4 10s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+}
+
+@keyframes flip2 {
+  0% {
+    margin-top: -180px;
+  }
+  5% {
+    margin-top: -90px;
+  }
+  50% {
+    margin-top: -90px;
+  }
+  55% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
+
+@keyframes flip3 {
+  0% {
+    margin-top: -270px;
+  }
+  5% {
+    margin-top: -180px;
+  }
+  33% {
+    margin-top: -180px;
+  }
+  38% {
+    margin-top: -90px;
+  }
+  66% {
+    margin-top: -90px;
+  }
+  71% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
+
+@keyframes flip4 {
+  0% {
+    margin-top: -360px;
+  }
+  5% {
+    margin-top: -270px;
+  }
+  25% {
+    margin-top: -270px;
+  }
+  30% {
+    margin-top: -180px;
+  }
+  50% {
+    margin-top: -180px;
+  }
+  55% {
+    margin-top: -90px;
+  }
+  75% {
+    margin-top: -90px;
+  }
+  80% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
+.activit {
+  color: white;
+  background: rgb(223, 95, 144);
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  display: flex;
+}
+.conbx {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.onBx {
+  padding-top: 12px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

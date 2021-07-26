@@ -1,0 +1,225 @@
+.strings {
+    font-size : 6px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+    transform: translateY(120%);
+
+}
+
+// Love dynamically typed text? You're gonna love this
+// Edit these strings to see them typed on the screen:
+$strings: (
+	"Welcome to my portfolio"
+    "Do you want to see more?"
+	
+);
+
+// now for some timing (in seconds)
+$durCharFwd: 0.10; // character typed
+$durFullGap: 2.00; // time between typed/delete
+$durCharBwd: 0.08; // character deleted
+$durDoneGap: 1.00; // time between strings
+
+// initializing some variables and functions ✊🏼
+$charCount: 0; $durTotal: 0;
+@each $string in $strings {
+	$charCount: $charCount + str-length($string);
+	$durTotal: $durTotal
+		+ (str-length($string) * ($durCharFwd + $durCharBwd))
+		+ $durFullGap + $durDoneGap;
+}
+@function percent($string, $letter, $modifier) {
+	$stringsPast: $string - 1; $time: 0;
+	@while $stringsPast > 0 {
+		$time: $time
+			+ (($durCharFwd + $durCharBwd) * (str-length(nth($strings, $stringsPast))))
+			+ $durFullGap + $durDoneGap;
+		$stringsPast: $stringsPast - 1;
+	}
+	@if $letter <= str-length(nth($strings, $string)) {
+		$time: $time
+			+ ($durCharFwd * ($letter - 1));
+	} @else {
+		$time: $time
+			+ ($durCharFwd * str-length(nth($strings, $string)))
+			+ $durFullGap
+			+ ($durCharBwd * ($letter - str-length(nth($strings, $string))));
+	}
+	@return ($time / $durTotal * 100 + $modifier) + "%";
+}
+$currentPercentage: 0;
+// now THIS is where the magic happens... ✨
+@keyframes typed {
+	@for $i from 1 through length($strings) {
+		// @for $j from 1 through (str-length(nth($strings, $i)) * 2 - 1) {
+		@for $j from 1 through (str-length(nth($strings, $i)) * 2) {
+			/* string #{$i}, char #{$j} */
+			@if $j < str-length(nth($strings, $i)) * 2 { // not last character deleted
+				#{percent($i, $j, 0)}, #{percent($i, $j+1, -0.001)} {
+					@if $j <= str-length(nth($strings, $i)) {
+						content: quote(#{str_slice(nth($strings, $i), 1, $j)});
+					} @else {
+						content: quote(#{str_slice(nth($strings, $i), 1, str-length(nth($strings, $i)) - ($j - str-length(nth($strings, $i))))});
+					}
+				}
+			} @else {
+				@if $i < length($strings) { // not last string
+					#{percent($i, $j, 0)}, #{percent($i+1, 1, -0.001)} {
+						content: "​"; // zero-width space to retain element height
+					}
+				} @else { // last string
+					#{percent($i, $j, 0)}, 100% {
+						content: "​"; // zero-width space to retain element height
+					}
+				}
+			}
+		}
+	}
+}
+@keyframes beam-blink {
+	75% { border-color: transparent; }
+}
+html, body { height: 100%; }
+.body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-repeat: repeat-y;
+	background-position: center center;
+	background-size: cover, 100% 3px;
+	font-size: calc(4px + 1vw);
+	font-family: 'VT323', monospace, sans-serif;
+	color: rgb(25, 26, 25); // hacker green
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	&::after {
+		content: "​"; // zero-width space to retain element height
+		position: relative;
+		top: -13px;
+		@media (max-width: 575px) { top: -33px; }
+		display: inline-block;
+		padding-right: 3px;
+		padding-right: calc(3px + 0.1vw);
+		border-right: calc(0.2vw - 0px) solid rgba(rgb(17, 17, 17), 0.75);
+		white-space: nowrap;
+		animation: typed #{$durTotal + "s"} linear 1s infinite, beam-blink 1s infinite;
+	}
+	&::before { // just generating some useful stats here 👋🏼
+		content: "";
+		@media (max-width: 575px) {
+			content: "";
+		}
+		
+	}
+}
+// body[onload] {
+// 	&::before, &::after { display: none !important; }
+// 	background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1580009/codepen_css-typed-this.png) center / cover;
+// }
+
+* { box-sizing: border-box; }
+$duration: 120s;
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-wrap {
+  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 3rem;
+  
+  padding-left: 100%;
+  box-sizing: content-box;
+
+  .ticker {
+
+    display: inline-block;
+    height: 3rem;
+    line-height: 3rem;  
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+
+    -webkit-animation-iteration-count: infinite; 
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+   -webkit-animation-name: ticker;
+           animation-name: ticker;
+    -webkit-animation-duration: $duration;
+            animation-duration: $duration;
+
+    &__item {
+
+      display: inline-block;
+
+      padding: 0 2rem;
+      font-size: 20px;
+      color: white;   
+
+    }
+
+  }
+
+}
+
+body { padding-bottom: 5rem; }
+h1,h2,p {padding: 0 5%;}
+
+
+
+
+.scroll {
+	opacity: 0.3;
+	background-color: rgb(139, 4, 106);
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	bottom: 50px;
+	right: 0px;
+	border-radius: 5px;
+	border: none;
+	color: aliceblue;
+	font-size: larger;
+	
+	&:hover {
+	  opacity: 1;
+	}
+  }
+  
+  .arrow-up {
+	color: white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -9px;
+	margin-left: -5px;
+  }
+	
